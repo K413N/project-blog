@@ -4,6 +4,7 @@ import BlogHero from '@/components/BlogHero';
 
 import styles from './postSlug.module.css';
 
+
 function BlogPost() {
   return (
     <article className={styles.wrapper}>

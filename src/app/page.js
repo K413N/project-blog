@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { MDXRemote } from 'next-mdx-remote';
-
 import { getBlogPostList } from '@/helpers/file-helpers';
 
 import BlogSummaryCard from '@/components/BlogSummaryCard';
@@ -22,6 +20,7 @@ async function Home() {
 
       <BlogSummaryCard
         key={slug}
+        slug={slug}
         {...delegated}
       />
       ))}

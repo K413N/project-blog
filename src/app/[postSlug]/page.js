@@ -6,6 +6,10 @@ import styles from './postSlug.module.css';
 import { BLOG_TITLE } from '@/constants';
 import CodeSnippet from '@/components/CodeSnippet';
 
+import dynamic from 'next/dynamic';
+
+import COMPONENT_MAP from '@/helpers/mdx-components';
+
 export async function generateMetadata({ params }) {
   const { frontmatter } = await loadBlogPost(params.postSlug);
   return {
@@ -33,7 +37,7 @@ async function BlogPost({ params }) {
         <MDXRemote 
         source={content}
         components={{
-          pre: CodeSnippet,
+          COMPONENT_MAP,
         }}
         />
         

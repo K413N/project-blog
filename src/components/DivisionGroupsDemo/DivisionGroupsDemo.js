@@ -22,6 +22,8 @@ function DivisionGroupsDemo({
     numOfItems / numOfGroups
   );
 
+  const totalNumInGroups = numOfGroups * numOfItemsPerGroup
+
   const remainder = includeRemainderArea
     ? numOfItems % numOfGroups
     : null;
@@ -77,7 +79,7 @@ function DivisionGroupsDemo({
                 return (
                   <motion.div
                   key={layoutId}
-                  layout={layoutId}
+                  layoutId={layoutId}
                   className={styles.item}
                   >
                     {index + 1}
@@ -95,9 +97,17 @@ function DivisionGroupsDemo({
             Remainder Area
           </p>
 
-          {range(remainder).map((index) => {
+          {range(
+            totalNumInGroups,
+            numOfItems
+          ).map((index) => {
+            
+            const layoutId = `${id}-${index}`;
             return (
-              <div key={index} className={styles.item} />
+              <motion.div 
+              key={layoutId} 
+              layoutId={layoutId}
+              className={styles.item}>{index}</motion.div>
             );
           })}
         </div>

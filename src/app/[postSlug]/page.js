@@ -4,9 +4,6 @@ import { loadBlogPost } from '@/helpers/file-helpers';
 import BlogHero from '@/components/BlogHero';
 import styles from './postSlug.module.css';
 import { BLOG_TITLE } from '@/constants';
-import CodeSnippet from '@/components/CodeSnippet';
-
-import dynamic from 'next/dynamic';
 
 import COMPONENT_MAP from '@/helpers/mdx-components';
 
@@ -36,9 +33,7 @@ async function BlogPost({ params }) {
       <div className={styles.page}>
         <MDXRemote 
         source={content}
-        components={{
-          COMPONENT_MAP,
-        }}
+        components={COMPONENT_MAP}
         />
         
       </div>
